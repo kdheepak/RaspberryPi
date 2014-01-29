@@ -51,11 +51,11 @@ ssh -p $portNumber $sshAddr $pathToWebScript
 
 # Send RaspberryPi external IP address to webserver
 curl "http://ipecho.net/plain" > $pathToFolder/externalIPAddress.txt
-scp -P $portNumber $pathToFolder/externalIPAddress.txt $sshAddr:$pathFolder
+scp -P $portNumber $pathToFolder/externalIPAddress.txt $sshAddr:$pathToWebFolder
 
 # Log last run date and time for debugging
 echo `date` > $pathToFolder/date.log
-scp -P $portNumber $pathToFolder/date.log $sshAddr:$pathFolder
+scp -P $portNumber $pathToFolder/date.log $sshAddr:$pathToWebFolder
 
 #kill $SSH_AGENT_PID
 
